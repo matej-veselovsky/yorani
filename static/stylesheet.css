@@ -19,7 +19,7 @@ ul {
     list-style: none;
 }
 
-.header {
+header {
     flex: 0 0 auto;
     justify-self: flex-start;
     display: flex;
@@ -33,24 +33,14 @@ ul {
     color: #F9FAF8;
 }
 
-.header .menu {
-    display: flex;
-    margin-left: auto;
-    align-items: center;
-}
 
-.menu-option {
-    margin: 10px;
-    font-size: 18px;
-}
-
-.footer {
+footer {
     flex: 0 0 auto;
     justify-self: flex-end;
     text-align: center;
 }
 
-.container {
+main {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -64,7 +54,7 @@ ul {
     border-radius: 5%;
 }
 
-.content {
+section {
     flex: 1;
     display: flex;
     flex-direction: row-reverse;
