@@ -24,28 +24,21 @@
                     <input type="text" autocomplete="off" id="inputWord" name="inputWord" required autofocus>
                     <button type="submit">Překlad</button>
                 </div>
-
-                <label for="ctoy">
-                    <input type="radio" name="direction" value="ctoy" 
-                    checked="checked">
-                    Čeština → Joranština
-                </label>
-                <label for="ytoc">
-                    <input type="radio" name="direction" value="ytoc">
-                    Joranština → Čeština
-                </label>
             </form>
             <br>
-            {% if wordList != 0 %}
+            <section class = "translations">
+                {% if wordList != 0 %}
+                    
+                    {% for translation in wordList %}
+                        <div class = "translations-line">
+                            <h1>{{translation[0]}}</h1>
+                        </div>
+                    {% endfor %}
                 
-                {% for translation in wordList %}
-                    <h1>{{translation[0]}}</h1>
-                {% endfor %}
-            
-                {% else %}
-                <h1>---NENALEZENO---</h1>
-            {% endif %}
-
+                    {% else %}
+                    <h1>---NENALEZENO---</h1>
+                {% endif %}
+            </section>
         </main>
 
         <footer>

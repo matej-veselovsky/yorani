@@ -4,22 +4,23 @@ import os
 
 app = Flask(__name__)
 
-def translate(inputWord, direction):
+def translate(inputWord):
     with sqlite3.connect("yorani.db") as con:
         cur = con.cursor()
 
-        if direction == "ytoc":
-            query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yorani_id FROM yorani_words WHERE yorani_word IS (?) COLLATE NOCASE);"
-        else:
-            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE czech_word IS (?) COLLATE NOCASE);"
-
+        query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yorani_id FROM yorani_words WHERE yorani_word IS (?) COLLATE NOCASE);"
         cur.execute(query, [inputWord])
         answer = cur.fetchall()
 
         if answer:
             return answer
         else:
-            return 0
+            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE czech_word IS (?) COLLATE NOCASE);"
+            cur.execute(query, [inputWord])
+            answer = cur.fetchall()
+
+            return answer
+
 
 
 
@@ -40,9 +41,8 @@ def dictionary():
 
     if request.method == "POST":
         inputWord = request.form.get("inputWord")
-        direction = request.form.get("direction")
 
-        outputList = translate(inputWord, direction)
+        outputList = translate(inputWord)
         return render_template("dictionary.html", wordList = outputList)
 
     return render_template("dictionary.html")
