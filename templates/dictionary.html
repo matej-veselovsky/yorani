@@ -19,19 +19,26 @@
         <main>
 
             <form class = "dictionary-input" action = "/dictionary" method = "POST">
-                <div>
+                <div class = "query-line">    
                     <label for="inputword">Slovo:</label>
                     <input type="text" autocomplete="off" id="inputWord" name="inputWord" required autofocus>
                     <button type="submit">Překlad</button>
                 </div>
             </form>
-            <br>
+
+            {% if displayInput != False %}
+                <section class = translation-input>
+                    <h1>Hledáno: "{{displayInput}}"</h1>
+                </section>
+            {% endif %}
+
             <section class = "translations">
                 {% if wordList != 0 %}
                     
-                    {% for translation in wordList %}
+                    {% for row in wordList %}
                         <div class = "translations-line">
-                            <h1>{{translation[0]}}</h1>
+                            <h1>{{row[0]}}</h1>
+                            <p>{{row[1]}}</p>
                         </div>
                     {% endfor %}
                 

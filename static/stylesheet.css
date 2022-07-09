@@ -164,8 +164,22 @@ section {
 .dictionary-input {
     justify-self: flex-start;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.query-line {
+    display: flex;
+    align-items: center;
+    flex: auto;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.translation-input {
+    flex: 0 0 auto;
+    margin-top: 20px;
 }
 
 .translations {
@@ -173,4 +187,11 @@ section {
     flex-direction: column;
     justify-content: flex-start;
 
+}
+
+.translations-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
 }

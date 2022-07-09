@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 import sqlite3
 import os
 
@@ -25,6 +25,23 @@ def translate(inputWord):
                 return 0
 
 
+def getAllTranslations(inputWord):
+    firstOrderList = translate(inputWord)
+    if firstOrderList == 0:
+        return 0
+    
+    secondOrderList = []
+
+    for translation in firstOrderList:
+        temp = []
+        
+        for element in translate(translation[0]):
+            temp.append(element[0])     
+        
+        secondOrderList.append([translation[0], temp])
+    
+    return secondOrderList
+
 
 
 @app.route("/")
@@ -45,10 +62,26 @@ def dictionary():
     if request.method == "POST":
         inputWord = request.form.get("inputWord")
 
-        outputList = translate(inputWord)
-        return render_template("dictionary.html", wordList = outputList)
+        tempList = getAllTranslations(inputWord)
+        if tempList == 0:
+            return render_template("dictionary.html", wordList = 0, displayInput = inputWord)
 
-    return render_template("dictionary.html")
+        outputList = []
+
+        for row in tempList:
+            translation = row[0]
+            tempRow = ""
+            for element in row[1]:
+                tempRow += " "+ element + ","
+            tempRow = tempRow.lstrip().rstrip(",")
+
+            outputList.append([translation, tempRow])
+
+
+
+        return render_template("dictionary.html", wordList = outputList, displayInput = inputWord)
+
+    return render_template("dictionary.html", displayInput = False)
 
     if __name__ == "__main__":
         app.run()
