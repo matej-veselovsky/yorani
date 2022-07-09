@@ -39,3 +39,6 @@ def dictionary():
         return render_template("dictionary.html", wordList = outputList)
 
     return render_template("dictionary.html")
+
+    if __name__ == "__main__":
+        app.run()
