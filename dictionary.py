@@ -19,7 +19,10 @@ def translate(inputWord):
             cur.execute(query, [inputWord])
             answer = cur.fetchall()
 
-            return answer
+            if answer:
+                return answer
+            else:
+                return 0
 
 
 
