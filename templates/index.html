@@ -8,21 +8,23 @@
     
     <body>
         <header>
-            <a href="./index.html">
-                <div class="logo">JORANŠTINA</div>
-            </a>
+            <form action = "/", id = "headerLogo">
+                <a href = "#" onclick = "document.getElementById('headerLogo').submit()">
+                    <div class="logo">JORANŠTINA</div>
+                </a>
+            </form>
         </header>
         
         <main>
             
             <section class="dictionary">
-                <img class="image" src="../images/dictionary.jpg" alt="Dictionary">
+                <img class="image" src="../static/dictionary.jpg" alt="Dictionary">
                 <div class="description-dictionary">
                     <h1>Lorem ipsum</h1>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh. Integer malesuada. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Aenean placerat. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit.</p>
-                    <a href="./dictionary.html">
-                        <button class="button translator">Překladač</button>
-                    </a>
+                    <form action = "/dictionary">
+                        <button class="button translator" type = "submit">Překladač</button>
+                    </form>
                 </div>
             </section>
 

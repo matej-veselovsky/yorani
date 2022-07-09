@@ -8,12 +8,42 @@
 
     <body>
         <header>
-            <a href="./index.html">
-                <div class="logo">JORANŠTINA</div>
-            </a>
+            <form action = "/", id = "headerLogo">
+                <a href = "#" onclick = "document.getElementById('headerLogo').submit()">
+                    <div class="logo">JORANŠTINA</div>
+                </a>
+            </form>
         </header>
 
         <main>
+
+            <form class = "dictionary-input" action = "/dictionary" method = "POST">
+                <div>
+                    <label for="inputword">Slovo:</label>
+                    <input type="text" autocomplete="off" id="inputWord" name="inputWord" required autofocus>
+                    <button type="submit">Překlad</button>
+                </div>
+
+                <label for="ctoy">
+                    <input type="radio" name="direction" value="ctoy" 
+                    checked="checked">
+                    Čeština → Joranština
+                </label>
+                <label for="ytoc">
+                    <input type="radio" name="direction" value="ytoc">
+                    Joranština → Čeština
+                </label>
+            </form>
+            <br>
+            {% if wordList != 0 %}
+                
+                {% for translation in wordList %}
+                    <h1>{{translation[0]}}</h1>
+                {% endfor %}
+            
+                {% else %}
+                <h1>---NENALEZENO---</h1>
+            {% endif %}
 
         </main>
 
