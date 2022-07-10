@@ -166,7 +166,15 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 15%;
+    width: auto;
+}
+
+.query-line > * {
+    margin: 5px;
+}
+
+.dictionary-input > * {
+    margin: 15px;
 }
 
 .query-line {
