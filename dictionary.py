@@ -8,15 +8,18 @@ def translate(inputWord):
     with sqlite3.connect("yorani.db") as con:
         cur = con.cursor()
 
-        query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yorani_id FROM yorani_words WHERE yorani_word IS (?) COLLATE NOCASE);"
-        cur.execute(query, [inputWord])
+        inputWordLower = inputWord.lower()
+        inputWordUpper = inputWord.upper()
+
+        query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yorani_id FROM yorani_words WHERE (yorani_word IS ? COLLATE NOCASE) OR (yorani_word IS ? COLLATE NOCASE));"
+        cur.execute(query, (inputWordLower, inputWordUpper))
         answer = cur.fetchall()
 
         if answer:
             return answer
         else:
-            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE czech_word IS (?) COLLATE NOCASE);"
-            cur.execute(query, [inputWord])
+            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word IS ? COLLATE NOCASE) OR (czech_word IS ? COLLATE NOCASE));"
+            cur.execute(query, (inputWordLower, inputWordUpper))
             answer = cur.fetchall()
 
             if answer:
@@ -60,13 +63,11 @@ def dictionary():
     outputList = ""
 
     if request.method == "POST":
-        inputWordDisplay = request.form.get("inputWord").strip()
-        inputWord = inputWordDisplay.capitalize()
-
+        inputWord = request.form.get("inputWord").strip()
 
         tempList = getAllTranslations(inputWord)
         if tempList == 0:
-            return render_template("dictionary.html", wordList = 0, displayInput = inputWordDisplay)
+            return render_template("dictionary.html", wordList = 0, displayInput = inputWord)
 
         outputList = []
 
@@ -81,7 +82,7 @@ def dictionary():
 
 
 
-        return render_template("dictionary.html", wordList = outputList, displayInput = inputWordDisplay)
+        return render_template("dictionary.html", wordList = outputList, displayInput = inputWord)
 
     return render_template("dictionary.html", displayInput = False)
 
