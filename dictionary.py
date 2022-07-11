@@ -60,11 +60,13 @@ def dictionary():
     outputList = ""
 
     if request.method == "POST":
-        inputWord = request.form.get("inputWord")
+        inputWordDisplay = request.form.get("inputWord").strip()
+        inputWord = inputWordDisplay.capitalize()
+
 
         tempList = getAllTranslations(inputWord)
         if tempList == 0:
-            return render_template("dictionary.html", wordList = 0, displayInput = inputWord)
+            return render_template("dictionary.html", wordList = 0, displayInput = inputWordDisplay)
 
         outputList = []
 
@@ -79,7 +81,7 @@ def dictionary():
 
 
 
-        return render_template("dictionary.html", wordList = outputList, displayInput = inputWord)
+        return render_template("dictionary.html", wordList = outputList, displayInput = inputWordDisplay)
 
     return render_template("dictionary.html", displayInput = False)
 
