@@ -4,22 +4,25 @@ import os
 
 app = Flask(__name__)
 
+
 def translate(inputWord):
     with sqlite3.connect("yorani.db") as con:
         cur = con.cursor()
 
-        inputWordLower = inputWord.lower()
-        inputWordUpper = inputWord.upper()
+        con.create_collation("unicode_nocase",
+            lambda x, y : 1 if x.lower() > y.lower() \
+                else -1 if x.lower() < y.lower() else 0)
 
-        query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yorani_id FROM yorani_words WHERE (yorani_word IS ? COLLATE NOCASE) OR (yorani_word IS ? COLLATE NOCASE));"
-        cur.execute(query, (inputWordLower, inputWordUpper))
+
+        query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yorani_id FROM yorani_words WHERE (yorani_word IS ? COLLATE unicode_nocase));"
+        cur.execute(query, [inputWord])
         answer = cur.fetchall()
 
         if answer:
             return answer
         else:
-            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word IS ? COLLATE NOCASE) OR (czech_word IS ? COLLATE NOCASE));"
-            cur.execute(query, (inputWordLower, inputWordUpper))
+            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word IS ? COLLATE unicode_nocase));"
+            cur.execute(query, [inputWord])
             answer = cur.fetchall()
 
             if answer:
