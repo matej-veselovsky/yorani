@@ -2,7 +2,8 @@
 <html lang="cs">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../static/stylesheet.css">
+        <link rel="stylesheet" href="../static/stylesheet-mobile.css">
+        
         <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <title>Slovník - Joranština</title>        
     </head>
@@ -21,7 +22,7 @@
             <form class = "dictionary-input" action = "/dictionary" method = "POST">
                 <div class = "query-line">    
                     <label for="inputword">Slovo:</label>
-                    <input type="text" autocomplete="off" id="inputWord" name="inputWord" required autofocus>
+                    <input type="text" autocomplete="off" id="inputWord" name="inputWord" spellcheck="false" required autofocus>
                 </div>
                     <button type="submit">Překlad</button>
             </form>
@@ -50,6 +51,9 @@
 
         <footer>
             Website by Matej Veselovský 2022
+            <a href="https://github.com/matej-veselovsky/yorani">
+                <img src="../static/GitHub-Mark-Light-32px.png">
+            </a>
         </footer>
     </body>
 </html>
