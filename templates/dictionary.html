@@ -18,34 +18,35 @@
         </header>
 
         <main>
+            <section class="dictionary-main">
+                <form class = "dictionary-input" action = "/dictionary" method = "POST">
+                    <div class = "query-line">    
+                        <label for="inputword">Slovo:</label>
+                        <input type="text" autocomplete="off" id="inputWord" name="inputWord" spellcheck="false" required autofocus>
+                    </div>
+                        <button type="submit">Překlad</button>
+                </form>
 
-            <form class = "dictionary-input" action = "/dictionary" method = "POST">
-                <div class = "query-line">    
-                    <label for="inputword">Slovo:</label>
-                    <input type="text" autocomplete="off" id="inputWord" name="inputWord" spellcheck="false" required autofocus>
-                </div>
-                    <button type="submit">Překlad</button>
-            </form>
-
-            {% if displayInput != False %}
-                <section class = translation-input>
-                    <h1>Hledáno: "{{displayInput}}"</h1>
-                </section>
-            {% endif %}
-
-            <section class = "translations">
-                {% if wordList != 0 %}
-                    
-                    {% for row in wordList %}
-                        <div class = "translations-line">
-                            <h1>{{row[0]}}</h1>
-                            <p>{{row[1]}}</p>
-                        </div>
-                    {% endfor %}
-                
-                    {% else %}
-                    <h1>---NENALEZENO---</h1>
+                {% if displayInput != False %}
+                    <section class = translation-input>
+                        <h1>Hledáno: "{{displayInput}}"</h1>
+                    </section>
                 {% endif %}
+
+                <section class = "translations">
+                    {% if wordList != 0 %}
+                        
+                        {% for row in wordList %}
+                            <div class = "translations-line">
+                                <h1>{{row[0]}}</h1>
+                                <p>{{row[1]}}</p>
+                            </div>
+                        {% endfor %}
+                    
+                        {% else %}
+                        <h1>---NENALEZENO---</h1>
+                    {% endif %}
+                </section>
             </section>
         </main>
 

@@ -19,14 +19,11 @@
         <main>
             
             <section class="dictionary">
-                <img class="image" src="../static/dictionary.jpg" alt="Dictionary">
-                <div class="description-dictionary">
-                    <h1>O slovníku</h1>
-                    <p>Česko-joranský slovník, který obsahuje více než 35 000 unikátních hesel. Databáze je pravidelně doplňována tvůrcem joranštiny Lukášem Tomáškem.</p>
-                    <form action = "/dictionary">
-                        <button class="button translator" type = "submit">Překladač</button>
+                    <form action = "/dictionary" id="dictionaryLink">
+                        <a href = "#" onclick="document.getElementById('dictionaryLink').submit()">
+                            <p class = "translator">Překladač</p>
+                        </a>
                     </form>
-                </div>
             </section>
 
             <section class="pieces">
@@ -40,7 +37,8 @@
         <footer>
             Website by Matej Veselovský 2022
             <a href="https://github.com/matej-veselovsky/yoranish">
-                <img src="../static/GitHub-Mark-Light-32px.png">
+                <img src="../static/GitHub-Mark-Light-32px.png" id="github-light">
+                <img src="../static/GitHub-Mark-32px.png" id="github-dark">
             </a>
         </footer>
     </body>
