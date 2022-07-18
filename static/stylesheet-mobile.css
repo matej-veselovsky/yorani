@@ -247,6 +247,10 @@ section {
     align-items: flex-start;
 }
 
+#notFound {
+    align-self: center;
+}
+
 @media screen and (min-device-width: 769px) {
     /* Main page */
     
