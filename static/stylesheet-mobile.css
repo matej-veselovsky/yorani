@@ -251,6 +251,14 @@ section {
     align-self: center;
 }
 
+#lastUpdate {
+    align-self: flex-start;
+    justify-self: flex-end;
+    font-size: small;
+    width: 100%;
+    background-color: #1F2937;
+}
+
 @media screen and (min-device-width: 769px) {
     /* Main page */
     

@@ -1,9 +1,20 @@
 from flask import Flask, render_template, request, send_from_directory
 import sqlite3
 import os
+import json
+import requests
+from datetime import datetime
 
 app = Flask(__name__)
 
+
+def getLastUpdate():
+    response = requests.get("https://api.github.com/repos/matej-veselovsky/yorani/commits?path=yorani.db")
+    databaseData = json.loads(response.text)
+    lastUpdate = databaseData[0]["commit"]["committer"]["date"]
+    lastUpdateDate = datetime.strptime(lastUpdate, "%Y-%m-%dT%H:%M:%SZ")
+
+    return lastUpdateDate
 
 def translate(inputWord):
     with sqlite3.connect("yorani.db") as con:
@@ -64,13 +75,14 @@ def favicon():
 @app.route("/dictionary", methods=["GET", "POST"])
 def dictionary():
     outputList = ""
+    date = getLastUpdate().strftime("%-d. %-m. %Y")
 
     if request.method == "POST":
         inputWord = request.form.get("inputWord").strip()
 
         tempList = getAllTranslations(inputWord)
         if tempList == 0:
-            return render_template("dictionary.html", wordList = 0, displayInput = inputWord)
+            return render_template("dictionary.html", wordList = 0, displayInput = inputWord, updateDate = date)
 
         outputList = []
 
@@ -85,9 +97,9 @@ def dictionary():
 
 
 
-        return render_template("dictionary.html", wordList = outputList, displayInput = inputWord)
+        return render_template("dictionary.html", wordList = outputList, displayInput = inputWord, updateDate = date)
 
-    return render_template("dictionary.html", displayInput = False)
+    return render_template("dictionary.html", displayInput = False, updateDate = date)
 
     if __name__ == "__main__":
         app.run()
