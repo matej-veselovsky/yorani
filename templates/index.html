@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-<html lang="cs">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../static/stylesheet.css">
-        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <title>Joranština</title>
-    </head>
-    
-    <body>
-        <header>
-            <form action = "/", id = "headerLogo">
-                <a href = "#" onclick = "document.getElementById('headerLogo').submit()">
-                    <div class="logo">JORANŠTINA</div>
-                </a>
-            </form>
-        </header>
-        
-        <main>
-            
-            <section class="dictionary">
-                    <form action = "/dictionary" id="dictionaryLink">
-                        <a href = "#" onclick="document.getElementById('dictionaryLink').submit()">
-                            <p class = "translator">Překladač</p>
-                        </a>
-                    </form>
-            </section>
 
-            <section class="pieces">
-                <div class="boxes">
-                    <a href="#"><div class="one-box grammar">Gramatika</div></a>
-                    <a href="#"><div class="one-box history">Historie jazyka</div></a>
-                </div>
-            </section>
-        </main>
-        
-        <footer>
-            Website by Matej Veselovský 2022
-            <a href="https://github.com/matej-veselovsky/yorani">
-                <img src="../static/images/GitHub-Mark-Light-32px.png" id="github-light" alt="light GitHub logo">
-                <img src="../static/images/GitHub-Mark-32px.png" id="github-dark" alt="dark GitHub logo">
-            </a>
-        </footer>
-    </body>
-</html>
+{% extends "layout.html" %}
+
+{% block main %}
+    <main id="frontPage">
+        <section class="dictionary">
+                <form action = "/dictionary" id="dictionaryLink">
+                    <a href = "#" onclick="document.getElementById('dictionaryLink').submit()">
+                        <p class = "translator">Překladač</p>
+                    </a>
+                </form>
+        </section>
+
+        <section class="pieces">
+            <div class="boxes">
+                <a href="#"><div class="one-box grammar">Gramatika</div></a>
+                <a href="#"><div class="one-box history">Historie jazyka</div></a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

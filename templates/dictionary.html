@@ -1,65 +1,40 @@
-<!DOCTYPE html>
-<html lang="cs">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../static/stylesheet.css">
-        
-        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <title>Slovník - Joranština</title>        
-    </head>
+{% extends "layout.html" %}
+ 
+{% block main %}
+<main id="dictionaryPage">
+    <section class="dictionary-main">
+        <form class = "dictionary-input" action = "/dictionary" method = "POST">
+            <div class = "query-line">    
+                <label for="inputword">Slovo:</label>
+                <input type="text" autocomplete="off" id="inputWord" name="inputWord" spellcheck="false" required autofocus>
+            </div>
+                <button type="submit">Překlad</button>
+        </form>
 
-    <body>
-        <header>
-            <form action = "/", id = "headerLogo">
-                <a href = "#" onclick = "document.getElementById('headerLogo').submit()">
-                    <div class="logo">JORANŠTINA</div>
-                </a>
-            </form>
-        </header>
-
-        <main>
-            <section class="dictionary-main">
-                <form class = "dictionary-input" action = "/dictionary" method = "POST">
-                    <div class = "query-line">    
-                        <label for="inputword">Slovo:</label>
-                        <input type="text" autocomplete="off" id="inputWord" name="inputWord" spellcheck="false" required autofocus>
-                    </div>
-                        <button type="submit">Překlad</button>
-                </form>
-
-                {% if displayInput != False %}
-                    <section class = translation-input>
-                        <h1>Hledáno: "{{displayInput}}"</h1>
-                    </section>
-                {% endif %}
-
-                <section class = "translations">
-                    {% if wordList != 0 %}
-                        
-                        {% for row in wordList %}
-                            <div class = "translations-line">
-                                <h1>{{row[0]}}</h1>
-                                <p>{{row[1]}}</p>
-                            </div>
-                        {% endfor %}
-                    
-                        {% else %}
-                        <h1 id="notFound">---NENALEZENO---</h1>
-                    {% endif %}
-                </section>
+        {% if displayInput != False %}
+            <section class = translation-input>
+                <h1>Hledáno: "{{displayInput}}"</h1>
             </section>
-        </main>
+        {% endif %}
 
-        <p id="lastUpdate">
-            Poslední update: {{updateDate}}
-        </p>
+        <section class = "translations">
+            {% if wordList != 0 %}
+                
+                {% for row in wordList %}
+                    <div class = "translations-line">
+                        <h1>{{row[0]}}</h1>
+                        <p>{{row[1]}}</p>
+                    </div>
+                {% endfor %}
+            
+                {% else %}
+                <h1 id="notFound">---NENALEZENO---</h1>
+            {% endif %}
+        </section>
+    </section>
 
-        <footer>
-            Website by Matej Veselovský 2022
-            <a href="https://github.com/matej-veselovsky/yorani">
-                <img src="../static/images/GitHub-Mark-Light-32px.png" id="github-light" alt="light GitHub logo">
-                <img src="../static/images/GitHub-Mark-32px.png" id="github-dark" alt="dark GitHub logo">
-            </a>
-        </footer>
-    </body>
-</html>
+    <p id="lastUpdate">
+        Poslední update: {{updateDate}}
+    </p>
+</main>
+{% endblock %}
