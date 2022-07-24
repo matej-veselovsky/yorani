@@ -4,12 +4,14 @@
     box-sizing: border-box;
     border: none;
     text-decoration: none;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    background-color: #1F2937;
+    background-color: white;
     color: white;
     height: 100vh;
     width: auto;
@@ -23,14 +25,17 @@ header {
     flex: 0 0 auto;
     justify-self: flex-start;
     display: flex;
+    justify-content: center;
+    width: 100;
+    background-color: white;
+    border-bottom: 2px solid #E5E7EB;
 }
 
 .logo {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 38px;
+    font-size: 7em;
     font-weight: 900;
     margin: 10px;
-    color: #F9FAF8;
+    color:#1F2937;
 }
 
 
@@ -40,9 +45,29 @@ footer {
     text-align: center;
     padding: 10px 0px;
     font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #1F2937;
+}
+
+footer > * {
+    padding: 5px;
+}
+
+#github-light {
+    height: 0px;
+    width: auto;
+}
+
+#github-dark {
+    height: 20px;
+    width: auto;
 }
 
 main {
+    background-color: #1F2937;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -50,59 +75,47 @@ main {
     align-items: center;
 }
 
-.image {
-    width: 450px;
-    height: auto;
-    border-radius: 5%;
-}
-
 section {
-    flex: 1;
+    flex: 0 0 auto;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 0px;
     width: 100%;
 }
 
-.dictionary .description-dictionary {
-    max-width: 30%;
+/* DICTIONARY MAIN PAGE PART */
+
+.dictionary > form {
+    width: 100%;
+    background-color: #12026b;
+}
+
+.dictionary > form:hover {
+    background-color: #2004c0;
+}
+
+.dictionary  a {
+    width: 100%;
+    height: 600px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.description-dictionary h1 {
-    font-size: 48px;
+.translator {
+    height: fit-content;
+    font-size: 6em;
     font-weight: 900;
-    color: #F9FAF8;
-    flex: 0 0 auto;
-    justify-self: flex-start;
-
 }
 
-.description-dictionary p {
-    font-size: 18px;
-    color: #E5E7EB;
-    max-width: 80%;
-    flex: 1 1 auto;
-}
-
-.button.translator {
-    background-color: #3882F6;
+.dictionary a:visited {
     color: white;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 10px;
-    flex: 0 0 auto;
-    justify-self: flex-end;
 }
 
-.button.translator:hover {
-    background-color: #1d427e;
-}
+
+/* PIECES PART */
 
 .pieces {
     background-color: white;
@@ -112,53 +125,56 @@ section {
 
 .boxes {
     display:flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.boxes > a {
+    width: 100vw;
+    height: auto;
 }
 
 .one-box {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    border: 3px solid #3882F6;
-    margin: 30px 30px 200px;
+    width: 100%;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #3882F6;
-    font-size: 35px;
+    font-size: 6em;
     font-weight: 900;
     text-align: center;
 }
 
-.description-pieces {
-    font-size: 36px;
-    font-weight: 900;
-    color: #1F2937;
-    margin: 20px;
+.grammar {
+    text-align: center;
+    background-color: white;
+    color:#1F2937;
 }
 
-.quote {
-    background-color: #E5E7EB;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.grammar:hover {
+    background-color: antiquewhite;
 }
 
-.quote-text {
-    font-size: 36px;
-    font-weight: light;
-    font-style: italic;
-    color: #1F2937;
+.history {
+    background-color: #1F2937;
+    color: white;
+}
+
+.history:hover {
+    background-color: #374962;
+}
+
+/* DICTIONARY PROPER PART */
+
+.query-line,
+.translation-input h1,
+.translations-line h1,
+.translations-line p {
+    font-family:'Times New Roman', Times, serif;
+}
+
+.dictionary-main {
     display: flex;
     flex-direction: column;
-    margin: 200px 0px;
-}
-
-.quote-text .author {
-    font-size: 18px;
-    font-weight: normal;
-    font-style: normal;
-    align-self:flex-end;
 }
 
 .dictionary-input {
@@ -169,8 +185,20 @@ section {
     width: auto;
 }
 
-.query-line > * {
-    margin: 5px;
+.query-line > label,
+.dictionary-input > button {
+    width: 0px;
+    height: 0px;
+    font-size: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#inputWord {
+    width: 100vw;
+    height: 5vh;
+    font-size: 3em;
+    padding: 0 20px;
 }
 
 .dictionary-input > * {
@@ -182,7 +210,7 @@ section {
     align-items: center;
     flex: auto;
     justify-content: space-between;
-    font-size: 18px;
+    margin: 0px;
 }
 
 .translation-input {
@@ -190,16 +218,229 @@ section {
     margin-top: 20px;
 }
 
+.translation-input h1 {
+    font-size: 5em;
+}
+
 .translations {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    width: 100%;
+    align-items: flex-start;
+    padding: 0px 5%;
+}
 
+.translations h1 {
+    font-size: 4em;
+}
+
+.translations p {
+    font-size: 2em;
 }
 
 .translations-line {
     display: flex;
+    width: 100%;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    width: 25%;
+    align-items: flex-start;
+}
+
+#notFound {
+    align-self: center;
+}
+
+#lastUpdate {
+    align-self: flex-start;
+    justify-self: flex-end;
+    font-size: small;
+    width: 100%;
+    background-color: #1F2937;
+    padding-left: 10px;
+}
+
+@media screen and (min-device-width: 769px) {
+    /* Main page */
+    
+    body {
+        background-color: #1F2937;
+        flex: 1 1 auto;
+    }
+    
+    header {
+        flex: 0 0 auto;
+        justify-self: flex-start;
+        align-self: flex-start;
+        display: flex;
+        border-bottom: 0px;
+        background-color: #1F2937;
+    }
+
+    .logo {
+        font-size: 38px;
+        color: white;
+    }
+
+    footer {
+        background-color: #1F2937;
+        color: white;
+        justify-self: flex-end;
+    }
+
+    #github-light {
+        height: 20px;
+        width: auto;
+    }
+    
+    #github-dark {
+        height: 0px;
+        width: auto;
+    }
+
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    main > * {
+        height: 100%
+    }
+
+    .dictionary {
+        width: 34%;
+        margin: 0px;
+    }
+
+    .dictionary > form, 
+    .dictionary > form > * {
+        height: 100%;
+    }
+
+
+    .translator {
+        font-size: 4em;
+        color: white;
+        font-weight: 900;
+    }
+
+    .translator:visited {
+        color: white;
+    }
+
+    .pieces {
+        width: 66%;
+    }
+
+    .boxes {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .boxes > a {
+        width: 50%;
+    }
+
+    .one-box {
+        height: 100%;
+        font-size: 4em;
+    }
+    
+    /* Dictionary proper */
+    
+    .dictionary-main {
+        justify-content: flex-start;
+    }
+    
+    .dictionary-input,
+    .translation-input,
+    .translations {
+        justify-self: flex-start;
+    }
+
+    .dictionary-input {
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
+
+    .query-line {
+        width: 60%;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 7%;
+    }
+
+    .query-line label {
+        width: auto;
+        height: auto;
+        font-size: 2em;
+        margin-right: 5%;
+    }
+
+    #inputWord {
+        width: 100%;
+        height: 3vh;
+        font-size: 1em;
+    }
+
+    .dictionary-input button {
+        font-size: 150%;
+        width: auto;
+        height: auto;
+        padding: 7px;
+        border-radius: 10px;
+        background-color:#E5E7EB;
+        color: #1F2937;
+        font-weight: bold;
+    }
+
+    .dictionary-input button:hover {
+        background-color:antiquewhite;
+    }
+
+    .translations  {
+        max-width: 60vw;
+    }
+    
+    .translations-line {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .translation-input h1,
+    .translations-line h1 {
+        font-size: 2em;
+    }
+
+    .translations-line p {
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (min-device-width: 2560px) {    
+    .translator,
+    .one-box {
+        font-size: 6em;
+    }
+
+    .dictionary-input {
+        width: 40%;
+    }
+
+    #inputWord {
+        height: 2vh;
+    }
+
+    .translations  {
+        max-width: 40vw;
+    }
 }
