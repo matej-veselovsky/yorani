@@ -75,7 +75,7 @@ def favicon():
 @app.route("/dictionary", methods=["GET", "POST"])
 def dictionary():
     outputList = ""
-    date = getLastUpdate().strftime("%-d. %-m. %Y")
+    date = getLastUpdate().strftime("%-d. %-m. %Y   %H:%M")
 
     if request.method == "POST":
         inputWord = request.form.get("inputWord").strip()
