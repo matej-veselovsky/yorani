@@ -32,8 +32,8 @@ def translate(inputWord):
         if answer:
             return answer
         else:
-            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word IS ? COLLATE unicode_nocase));"
-            cur.execute(query, [inputWord])
+            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word LIKE ? COLLATE unicode_nocase));"
+            cur.execute(query, [inputWord + "%"])
             answer = cur.fetchall()
 
             if answer:
