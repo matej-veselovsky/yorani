@@ -4,7 +4,7 @@ import os
 import json
 import requests
 from datetime import datetime
-
+EQUALLENGTH = 3
 app = Flask(__name__)
 
 
@@ -32,8 +32,13 @@ def translate(inputWord):
         if answer:
             return answer
         else:
-            query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word LIKE ? COLLATE unicode_nocase));"
-            cur.execute(query, [inputWord + "%"])
+            if len(inputWord) > EQUALLENGTH:
+                query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word LIKE ? COLLATE unicode_nocase));"
+                cur.execute(query, [inputWord + "%"])
+            else:
+                query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word IS ? COLLATE unicode_nocase));"
+                cur.execute(query, [inputWord])
+            
             answer = cur.fetchall()
 
             if answer:
