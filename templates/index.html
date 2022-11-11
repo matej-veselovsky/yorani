@@ -1,7 +1,21 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <meta name="google-site-verification" content="3ZiRlzJpW37AUVhBmPYpnZWQqZn-3-Y__yvYPDDuoiE" />
+        <link rel="stylesheet" href="../static/stylesheet.css">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <title>Joranština</title>
+    </head>
 
-{% extends "layout.html" %}
-
-{% block main %}
+    <body>
+        <header>
+            <form action = "/", id = "headerLogo">
+                <a href = "#" onclick = "document.getElementById('headerLogo').submit()">
+                    <div class="logo">JORANŠTINA</div>
+                </a>
+            </form>
+        </header>
     <main id="frontPage">
         <section class="dictionary">
                 <form action = "/dictionary" id="dictionaryLink">
@@ -18,4 +32,13 @@
             </div>
         </section>
     </main>
-{% endblock %}
+    <footer>
+        Website by Matěj Veselovský 2022
+        <a href="https://github.com/matej-veselovsky/yorani">
+            <img src="../static/images/GitHub-Mark-Light-32px.png" id="github-light" alt="light GitHub logo">
+            <img src="../static/images/GitHub-Mark-32px.png" id="github-dark" alt="dark GitHub logo">
+        </a>
+    </footer>
+</body>
+
+</html>
