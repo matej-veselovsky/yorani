@@ -22,6 +22,11 @@ ul {
     list-style: none;
 }
 
+#mainBody {
+    min-height: 100vh;
+    height: 100vh;
+}
+
 header {
     flex: 0 0 auto;
     justify-self: flex-start;
