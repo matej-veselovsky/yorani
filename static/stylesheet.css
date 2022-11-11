@@ -89,7 +89,6 @@ section {
     justify-content: center;
     width: 100%;
 }
-
 /* DICTIONARY MAIN PAGE PART */
 
 .dictionary > form {
@@ -120,53 +119,66 @@ section {
     color: white;
 }
 
+/* GRAMMAR MAIN PAGE PART */
 
-/* PIECES PART */
-
-.pieces {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-.boxes {
-    display:flex;
-    flex-direction: column;
-}
-
-.boxes > a {
-    width: 100vw;
-    height: auto;
-}
-
-.one-box {
+.grammar > form {
     width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 6em;
-    font-weight: 900;
-    text-align: center;
-}
-
-.grammar {
-    text-align: center;
     background-color: white;
     color:#1F2937;
 }
 
-.grammar:hover {
+.grammar > form:hover {
     background-color: antiquewhite;
 }
 
-.history {
-    background-color: #1F2937;
-    color: white;
+.grammar  a {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.history:hover {
+.grammarButton {
+    height: fit-content;
+    font-size: 6em;
+    font-weight: 900;
+}
+
+.grammar a:visited {
+    color: #1F2937;
+}
+
+/* HISTORY MAIN PAGE PART */
+
+.history > form {
+    width: 100%;
+    background-color: #1F2937;
+    color:white;
+}
+
+.history > form:hover {
     background-color: #374962;
+}
+
+.history  a {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.historyButton {
+    height: fit-content;
+    font-size: 6em;
+    font-weight: 900;
+}
+
+.history a:visited {
+    color: white;
 }
 
 /* DICTIONARY PROPER PART */
@@ -275,6 +287,17 @@ section {
     padding-left: 10px;
 }
 
+/* Grammar proper */
+#grammarPage {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.abecedaText,
+.sklonovaniText {
+    font-size: 0;
+}
+
 @media screen and (min-device-width: 769px) {
     /* Main page */
     
@@ -333,10 +356,13 @@ section {
     }
 
     .dictionary > form, 
-    .dictionary > form > * {
+    .dictionary > form > *,
+    .grammar > form,
+    .grammar > form > *,
+    .history > form,
+    .history > form > * {
         height: 100%;
     }
-
 
     .translator {
         font-size: 4em;
@@ -348,26 +374,31 @@ section {
         color: white;
     }
 
-    .pieces {
-        width: 66%;
-        height: 100%;
-    }
-
-    .boxes {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .boxes > a {
-        width: 50%;
-    }
-
-    .one-box {
-        height: 100%;
+    .grammarButton {
         font-size: 4em;
+        color: #1F2937;
+        font-weight: 900;
+    }
+
+    .grammarButton:visited {
+        color: #1F2937;
+    }
+    
+    .historyButton {
+        font-size: 4em;
+        color: white;
+        font-weight: 900;
+    }
+
+    .historyButton:visited {
+        color:white;
+    }
+
+    .grammar,
+    .history {
+        width: 33%;
+        margin: 0px;
+        height: 100%;
     }
     
     /* Dictionary proper */
@@ -446,7 +477,8 @@ section {
 
 @media screen and (min-device-width: 2560px) {    
     .translator,
-    .one-box {
+    .grammarButton,
+    .historyButton {
         font-size: 6em;
     }
 

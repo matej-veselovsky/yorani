@@ -25,12 +25,22 @@
                 </form>
         </section>
 
-        <section class="pieces">
-            <div class="boxes">
-                <a href="#"><div class="one-box grammar">Gramatika</div></a>
-                <a href="#"><div class="one-box history">Historie jazyka</div></a>
-            </div>
+        <section class="grammar">
+            <form action = "/grammar" id="grammarLink">
+                <a href = "#" onclick="document.getElementById('grammarLink').submit()">
+                    <p class="grammarButton">Gramatika</p>
+                </a>
+            </form>
         </section>
+
+        <section class="history">
+            <form action ="/">
+                <a href="#">
+                    <p class="historyButton">Historie jazyka</p>
+                </a>
+            </form>
+        </section>
+
     </main>
     <footer>
         Website by Matěj Veselovský 2022
