@@ -109,5 +109,9 @@ def dictionary():
 
     return render_template("dictionary.html", displayInput = False, updateDate = date)
 
+@app.route("/grammar")
+def grammar():
+    return render_template("grammar.html")
+
     if __name__ == "__main__":
         app.run()

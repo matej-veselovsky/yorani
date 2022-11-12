@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/stylesheet.css">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <title>Joranština | Gramatika</title>
+    </head>
+    <body>
+        <header>
+            <form action = "/", id = "headerLogo">
+                <a href = "#" onclick = "document.getElementById('headerLogo').submit()">
+                    <div class="logo">JORANŠTINA</div>
+                </a>
+            </form>
+        </header>
+        
+        <main id="grammarPage">
+            <button id="abeceda" onclick="changeHeight('abecedaText')">Abeceda</button>
+            <section>
+                <div class="abecedaText">
+                    Abeceda
+                    <table class="abecedaTable">
+                        <tr>
+                            <td>A</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Bi</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Ce</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>Di</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>I</td>
+                            <td>E</td>
+                        </tr>
+                        <tr>
+                            <td>Fe</td>
+                            <td>F</td>
+                        </tr>
+                        <tr>
+                            <td>Ga</td>
+                            <td>G</td>
+                        </tr>
+                        <tr>
+                            <td>Hu</td>
+                            <td>H</td>
+                        </tr>
+                        <tr>
+                            <td>Che</td>
+                            <td>Ch</td>
+                        </tr>
+                        <tr>
+                            <td>Cha</td>
+                            <td>Ch</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td>I</td>
+                        </tr>
+                        <tr>
+                            <td>Je</td>
+                            <td>J</td>
+                        </tr>
+                        <tr>
+                            <td>Ka</td>
+                            <td>K</td>
+                        </tr>
+                        <tr>
+                            <td>Li</td>
+                            <td>L</td>
+                        </tr>
+                        <tr>
+                            <td>Me</td>
+                            <td>M</td>
+                        </tr>
+                        <tr>
+                            <td>Ne</td>
+                            <td>N</td>
+                        </tr>
+                        <tr>
+                            <td>O</td>
+                            <td>O</td>
+                        </tr>
+                        <tr>
+                            <td>Pi</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>
+                            <td>Qe</td>
+                            <td>Q</td>
+                        </tr>
+                        <tr>
+                            <td>Ra</td>
+                            <td>R</td>
+                        </tr>
+                        <tr>
+                            <td>Si</td>
+                            <td>S</td>
+                        </tr>
+                        <tr>
+                            <td>Tu</td>
+                            <td>T</td>
+                        </tr>
+                        <tr>
+                            <td>U</td>
+                            <td>U</td>
+                        </tr>
+                        <tr>
+                            <td>Ve</td>
+                            <td>V</td>
+                        </tr>
+                        <tr>
+                            <td>Wi</td>
+                            <td>W</td>
+                        </tr>
+                        <tr>
+                            <td>Zet</td>
+                            <td>Z</td>
+                        </tr>
+                    </table>
+                     
+                    <table class="abecedaTable">
+                        <tr>
+                            <td>Ā</td>
+                            <td>Á</td>
+                        </tr>
+                        <tr>
+                            <td>Â</td>
+                            <td>Ja</td>
+                        </tr>
+                        <tr>
+                            <td>Î</td>
+                            <td>Je</td>
+                        </tr>
+                        <tr>
+                            <td>Ô</td>
+                            <td>Jo</td>
+                        </tr>
+                        <tr>
+                            <td>Û</td>
+                            <td>Ju</td>
+                        </tr>
+                        <tr>
+                            <td>Ĉe</td>
+                            <td>Č</td>
+                        </tr>
+                        <tr>
+                            <td>Dji</td>
+                            <td>Ď</td>
+                        </tr>
+                        <tr>
+                            <td>Dje</td>
+                            <td>Dž</td>
+                        </tr>
+                        <tr>
+                            <td>Mje</td>
+                            <td>Měkké M</td>
+                        </tr>
+                        <tr>
+                            <td>Nje</td>
+                            <td>Měkké N</td>
+                        </tr>
+                        <tr>
+                            <td>R̂a</td>
+                            <td>Ř</td>
+                        </tr>
+                        <tr>
+                            <td>Ŝi</td>
+                            <td>Š</td>
+                        </tr>
+                        <tr>
+                            <td>Tje</td>
+                            <td>Ť</td>
+                        </tr>
+                        <tr>
+                            <td>Ẑet</td>
+                            <td>Ž</td>
+                        </tr>
+                        <tr>
+                            <td>Xe</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                    
+                    Vazby
+                                       příklady
+                    aa (ā) - á.  liāvea - láva
+                    ae - e.        diarae - dary (u mn.č. m. rodu)
+                    ai - aj.        adiraisia - adresa
+                    ao - o.        akaoradi - akord
+                    au - u.        autuo - auto
+                    ia - ja.        abiceidia - abeceda
+                    ie - je.        amebiecei - ambice
+                    io - jo.        biedilio - bydlení, bydliště
+                    iu - ju.        biudiei - bude
+                    ea - a.        meatukaa - matka
+                    ei - ej.        Ĉeisiei, Ĉeisikao - Česko
+                    ee (ē) - é.  siwiēcea - svíčka
+                    eo - ó.        meositu - most
+                    eu - ú.        ceukara - cukr
+                    oo (ō) - ó. diōme - dóm
+                    oje - oje.   meoje - můj
+                    ua - va.      huadi - had
+                    ui - vi.        tuisitu - test
+                    ue - ve.      huesituoraei - historie/dějiny
+                    uo - vo.      tuo - to
+                    uu (ū) - ú.  piūli - půl, polovina
+                    
+                    eu - u.  u koncovek jednotného čísla
+                    eo - o   u koncovek jednotného čísla
+                </div>
+
+            </section>
+
+            <button id="sklonovani" onclick="changeHeight('sklonovaniText')">Skloňování</button>
+            <section>
+                <p class="sklonovaniText">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam in lorem sit amet leo accumsan lacinia. Et harum quidem rerum facilis est et expedita distinctio. Integer imperdiet lectus quis justo. Maecenas lorem. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Praesent id justo in neque elementum ultrices. Etiam bibendum elit eget erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras elementum.
+                </p>
+
+                <p class="sklonovaniText">
+                    Sed convallis magna eu sem. Quisque porta. Duis pulvinar. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Aliquam id dolor. Aliquam erat volutpat. Et harum quidem rerum facilis est et expedita distinctio. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Donec vitae arcu. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aliquam in lorem sit amet leo accumsan lacinia. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Nullam rhoncus aliquam metus. Vivamus luctus egestas leo.
+                </p>
+
+                <p class="sklonovaniText">
+                    Suspendisse nisl. Vivamus ac leo pretium faucibus. Praesent in mauris eu tortor porttitor accumsan. Suspendisse sagittis ultrices augue. Aenean vel massa quis mauris vehicula lacinia. Nulla non arcu lacinia neque faucibus fringilla. Sed convallis magna eu sem. Nulla pulvinar eleifend sem. Curabitur bibendum justo non orci. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Mauris metus. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Praesent dapibus. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Etiam commodo dui eget wisi. Nulla non arcu lacinia neque faucibus fringilla. Fusce nibh. Duis risus. Integer imperdiet lectus quis justo. Maecenas libero.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            Website by Matěj Veselovský 2022
+            <a href="https://github.com/matej-veselovsky/yorani">
+                <img src="../static/images/GitHub-Mark-Light-32px.png" id="github-light" alt="light GitHub logo">
+                <img src="../static/images/GitHub-Mark-32px.png" id="github-dark" alt="dark GitHub logo">
+            </a>
+        </footer>
+        <script>
+            let heightSwitch = "1em"
+
+            function changeHeight(element) {
+                let paragraphs = document.getElementsByClassName(element)
+
+                for (let i = 0; i < paragraphs.length; i++ ) {
+                    paragraphs[i].style.fontSize = heightSwitch
+                }
+
+                if (heightSwitch == "1em") heightSwitch = "0"
+                else heightSwitch = "1em"
+            }
+        </script>
+        
+    </body>
+</html>

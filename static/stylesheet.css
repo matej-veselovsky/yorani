@@ -294,8 +294,13 @@ section {
 }
 
 .abecedaText,
-.sklonovaniText {
+.sklonovaniText,
+.abecedaTable {
     font-size: 0;
+}
+
+.abecedaText {
+    display: flex;
 }
 
 @media screen and (min-device-width: 769px) {
