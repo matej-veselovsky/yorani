@@ -16,7 +16,7 @@ def getLastUpdate():
 
     return lastUpdateDate
 
-def translate(inputWord):
+def translate(inputWord, isPrimaryQuery = True):
     with sqlite3.connect("yorani.db") as con:
         cur = con.cursor()
 
@@ -32,7 +32,7 @@ def translate(inputWord):
         if answer:
             return answer
         else:
-            if len(inputWord) > EQUALLENGTH:
+            if (len(inputWord) > EQUALLENGTH) and isPrimaryQuery:
                 query = "SELECT yorani_word FROM yorani_words WHERE yorani_id IN (SELECT reference_id FROM czech_words WHERE (czech_word LIKE ? COLLATE unicode_nocase));"
                 cur.execute(query, [inputWord + "%"])
             else:
@@ -57,7 +57,7 @@ def getAllTranslations(inputWord):
     for translation in firstOrderList:
         temp = []
         
-        for element in translate(translation[0]):
+        for element in translate(translation[0], False):
             temp.append(element[0])     
         
         secondOrderList.append([translation[0], temp])
